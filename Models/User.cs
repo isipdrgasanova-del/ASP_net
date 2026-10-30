@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace WebApplication12.Models;
+namespace WebApplication13.Models;
 
 public partial class User
 {
@@ -33,8 +33,6 @@ public partial class User
     public DateOnly RegistrationDate { get; set; }
 
     public virtual ICollection<Cart> Carts { get; set; } = new List<Cart>();
-
     public virtual Position IdPositionNavigation { get; set; } = null!;
-
     public virtual ICollection<Order> Orders { get; set; } = new List<Order>();
 }

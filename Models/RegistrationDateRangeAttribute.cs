@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace WebApplication12.Models
+namespace WebApplication13.Models
 {
     public class RegistrationDateRangeAttribute : ValidationAttribute
     {
@@ -14,13 +14,9 @@ namespace WebApplication12.Models
                 DateOnly today = DateOnly.FromDateTime(DateTime.Today);
 
                 if (registrationDate > today)
-                {
                     return new ValidationResult(ErrorMessage ?? "Дата регистрации не может быть в будущем.");
-                }
                 if (registrationDate < today)
-                {
                     return new ValidationResult(ErrorMessage ?? "Дата регистрации должна соответствовать сегодняшнему дню.");
-                }
             }
             return ValidationResult.Success;
         }

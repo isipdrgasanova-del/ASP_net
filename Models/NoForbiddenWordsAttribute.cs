@@ -1,8 +1,7 @@
-﻿using System;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.Linq;
 
-namespace WebApplication12.Models
+namespace WebApplication13.Models
 {
     public class NoForbiddenWordsAttribute : ValidationAttribute
     {
@@ -14,9 +13,8 @@ namespace WebApplication12.Models
             string stringValue = value.ToString()!.ToLower();
 
             if (_forbiddenWords.Any(word => stringValue.Contains(word)))
-            {
                 return new ValidationResult(ErrorMessage ?? "Значение содержит запрещенные системные слова.");
-            }
+
             return ValidationResult.Success;
         }
     }

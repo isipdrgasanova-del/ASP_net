@@ -1,7 +1,6 @@
-﻿using System;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 
-namespace WebApplication12.Models
+namespace WebApplication13.Models
 {
     public class NoRepeatedCharactersAttribute : ValidationAttribute
     {
@@ -19,14 +18,9 @@ namespace WebApplication12.Models
                 {
                     count++;
                     if (count > _maxRepeats)
-                    {
                         return new ValidationResult(ErrorMessage ?? $"Недопустимо повторение одного символа более {_maxRepeats} раз подряд.");
-                    }
                 }
-                else
-                {
-                    count = 1;
-                }
+                else count = 1;
             }
             return ValidationResult.Success;
         }

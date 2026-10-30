@@ -1,8 +1,7 @@
-﻿using System;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.Text.RegularExpressions;
 
-namespace WebApplication12.Models
+namespace WebApplication13.Models
 {
     public class ComplexPasswordAttribute : ValidationAttribute
     {
@@ -17,9 +16,8 @@ namespace WebApplication12.Models
             bool hasSpecialChar = Regex.IsMatch(password, @"[\W_]");
 
             if (!hasUpperCase || !hasLowerCase || !hasDigits || !hasSpecialChar)
-            {
                 return new ValidationResult(ErrorMessage ?? "Пароль должен содержать заглавные и строчные буквы, цифры и специальные символы.");
-            }
+
             return ValidationResult.Success;
         }
     }

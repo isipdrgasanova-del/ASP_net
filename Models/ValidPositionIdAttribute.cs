@@ -1,7 +1,6 @@
-﻿using System;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 
-namespace WebApplication12.Models
+namespace WebApplication13.Models
 {
     public class ValidPositionIdAttribute : ValidationAttribute
     {
@@ -9,13 +8,9 @@ namespace WebApplication12.Models
         {
             if (value == null) return new ValidationResult("Необходимо выбрать должность.");
 
-            if (value is int positionId)
-            {
-                if (positionId <= 0)
-                {
-                    return new ValidationResult(ErrorMessage ?? "Выбран некорректный идентификатор должности.");
-                }
-            }
+            if (value is int positionId && positionId <= 0)
+                return new ValidationResult(ErrorMessage ?? "Выбран некорректный идентификатор должности.");
+
             return ValidationResult.Success;
         }
     }
